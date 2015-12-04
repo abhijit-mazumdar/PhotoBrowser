@@ -19,16 +19,9 @@ class OauthLoginViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var coreDataStack: CoreDataStack!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Check Reachability
-        if Reachability.isConnectedToNetwork() == true {
-            print("Internet connection OK")
-        } else {
-            print("Internet connection FAILED")
-            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -64,6 +57,15 @@ class OauthLoginViewController: UIViewController {
 
 extension OauthLoginViewController: UIWebViewDelegate {
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        //Check Reachability
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        self.activityIndicator.stopAnimating()
         debugPrint(request.URLString)
         let urlString = request.URLString
         if let range = urlString.rangeOfString(Instagram.Router.redirectURI + "?code=") {
@@ -78,6 +80,15 @@ extension OauthLoginViewController: UIWebViewDelegate {
     }
     
     func requestAccessToken(code: String) {
+        //Check Reachability
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        self.activityIndicator.stopAnimating()
         let request = Instagram.Router.requestAccessTokenURLStringAndParms(code)
         
         Alamofire.request(.POST, request.URLString, parameters: request.Params)
