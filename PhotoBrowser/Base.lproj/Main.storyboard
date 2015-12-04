@@ -17,27 +17,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkH-w8-7ak">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ifa-sd-9lR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
-                                    <outlet property="delegate" destination="Tbf-cJ-MQY" id="S5e-az-fBh"/>
+                                    <outlet property="delegate" destination="Tbf-cJ-MQY" id="fLv-0v-kPJ"/>
                                 </connections>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SeD-j3-9Y0">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <animations/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OkH-w8-7ak" firstAttribute="bottom" secondItem="AAb-z5-7Ou" secondAttribute="top" id="TtV-vE-TXa"/>
-                            <constraint firstAttribute="trailing" secondItem="OkH-w8-7ak" secondAttribute="trailing" id="Xu7-zP-jUZ"/>
-                            <constraint firstItem="OkH-w8-7ak" firstAttribute="leading" secondItem="Lab-x0-7Ef" secondAttribute="leading" id="jAp-lY-29u"/>
-                            <constraint firstItem="OkH-w8-7ak" firstAttribute="top" secondItem="Lab-x0-7Ef" secondAttribute="top" id="tb6-PJ-lLW"/>
+                            <constraint firstItem="SeD-j3-9Y0" firstAttribute="centerY" secondItem="Ifa-sd-9lR" secondAttribute="centerY" id="7Wh-Lu-nbP"/>
+                            <constraint firstItem="SeD-j3-9Y0" firstAttribute="centerX" secondItem="Ifa-sd-9lR" secondAttribute="centerX" id="ZWu-cD-KQE"/>
+                            <constraint firstItem="Ifa-sd-9lR" firstAttribute="leading" secondItem="Lab-x0-7Ef" secondAttribute="leading" id="gcG-nJ-KEM"/>
+                            <constraint firstItem="Ifa-sd-9lR" firstAttribute="bottom" secondItem="AAb-z5-7Ou" secondAttribute="top" id="nRV-Hf-oBa"/>
+                            <constraint firstItem="Ifa-sd-9lR" firstAttribute="top" secondItem="Lab-x0-7Ef" secondAttribute="top" id="spx-xK-esw"/>
+                            <constraint firstAttribute="trailing" secondItem="Ifa-sd-9lR" secondAttribute="trailing" id="swi-rO-vna"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="355-sY-WM6"/>
                     <connections>
-                        <outlet property="webView" destination="OkH-w8-7ak" id="OGb-0E-3Zx"/>
+                        <outlet property="activityIndicator" destination="SeD-j3-9Y0" id="tZV-Uu-noh"/>
+                        <outlet property="webView" destination="Ifa-sd-9lR" id="snO-Jv-rTi"/>
                         <segue destination="9oh-Gc-SlO" kind="unwind" identifier="unwindToPhotoBrowser" unwindAction="unwindToPhotoBrowser:" id="gaC-Mh-FT9"/>
                     </connections>
                 </viewController>

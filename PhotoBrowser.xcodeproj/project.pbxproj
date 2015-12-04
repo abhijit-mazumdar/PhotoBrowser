@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		192CF3D52500AD552EE6B97A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BCDB455095E674811D7E85 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A8FAD84B1C1175A40015BB90 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FAD84A1C1175A30015BB90 /* Reachability.swift */; };
 		CD3DE0631A56C4C200A7C5B8 /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DE0621A56C4C200A7C5B8 /* PhotoInfo.swift */; };
 		CD3DE0661A56CE6600A7C5B8 /* FastImageCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DE0651A56CE6600A7C5B8 /* FastImageCacheHelper.swift */; };
 		CD3DE0681A56DAE700A7C5B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DE0671A56DAE700A7C5B8 /* User.swift */; };
@@ -51,6 +52,7 @@
 		00BCDB455095E674811D7E85 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F082102CF08DB999443C8E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		562441392257558E47EC0588 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A8FAD84A1C1175A30015BB90 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CD3DE0621A56C4C200A7C5B8 /* PhotoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		CD3DE0651A56CE6600A7C5B8 /* FastImageCacheHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastImageCacheHelper.swift; sourceTree = "<group>"; };
 		CD3DE0671A56DAE700A7C5B8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				CD3DE0651A56CE6600A7C5B8 /* FastImageCacheHelper.swift */,
 				CD3DE0621A56C4C200A7C5B8 /* PhotoInfo.swift */,
 				CDC9FB4D1A47ABE500466910 /* OauthLoginViewController.swift */,
+				A8FAD84A1C1175A30015BB90 /* Reachability.swift */,
 				CD7FF6291A47DC2D00DD763C /* PhotoBrowserCollectionViewController.swift */,
 				CD48475F1A57854600BA0ACE /* PhotoViewerViewController.swift */,
 				CD7FF6231A47BC8100DD763C /* Instagram.swift */,
@@ -335,6 +338,7 @@
 				CD3DE0681A56DAE700A7C5B8 /* User.swift in Sources */,
 				CDC9FB4E1A47ABE500466910 /* OauthLoginViewController.swift in Sources */,
 				CDC9FB2E1A47AAC600466910 /* PhotoBrowser.xcdatamodeld in Sources */,
+				A8FAD84B1C1175A40015BB90 /* Reachability.swift in Sources */,
 				CD7FF62A1A47DC2D00DD763C /* PhotoBrowserCollectionViewController.swift in Sources */,
 				CD3DE0661A56CE6600A7C5B8 /* FastImageCacheHelper.swift in Sources */,
 				CD4847601A57854600BA0ACE /* PhotoViewerViewController.swift in Sources */,

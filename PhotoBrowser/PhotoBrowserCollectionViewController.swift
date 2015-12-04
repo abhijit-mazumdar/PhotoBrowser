@@ -34,6 +34,7 @@ class PhotoBrowserCollectionViewController: UICollectionViewController, UICollec
     
     var photos = [PhotoInfo]()
     let refreshControl = UIRefreshControl()
+    let activityIndicator = UIActivityIndicatorView()
     var populatingPhotos = false
     var nextURLRequest: NSURLRequest?
     var coreDataStack: CoreDataStack!
@@ -197,8 +198,17 @@ class PhotoBrowserCollectionViewController: UICollectionViewController, UICollec
     }
     
     func handleRefresh() {
+        //Check Reachability
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
         nextURLRequest = nil
         refreshControl.beginRefreshing()
+        activityIndicator.startAnimating()
         self.photos.removeAll(keepCapacity: false)
         self.collectionView!.reloadData()
         refreshControl.endRefreshing()
@@ -206,6 +216,7 @@ class PhotoBrowserCollectionViewController: UICollectionViewController, UICollec
             let request = Instagram.Router.PopularPhotos(user!.userID, user!.accessToken)
             populatePhotos(request)
         }
+        activityIndicator.stopAnimating()
     }
     
     func hideLogoutButtonItem(hide: Bool) {
@@ -223,6 +234,14 @@ class PhotoBrowserCollectionViewController: UICollectionViewController, UICollec
             let photoViewerViewController = segue.destinationViewController as! PhotoViewerViewController
             photoViewerViewController.photoInfo = sender?.valueForKey("photoInfo") as? PhotoInfo
         } else if segue.identifier == "login" && segue.destinationViewController.isKindOfClass(UINavigationController.classForCoder()) {
+            //Check Reachability
+            if Reachability.isConnectedToNetwork() == true {
+                print("Internet connection OK")
+            } else {
+                print("Internet connection FAILED")
+                let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+            }
             let navigationController = segue.destinationViewController as! UINavigationController
             if let oauthLoginViewController = navigationController.topViewController as? OauthLoginViewController {
                 oauthLoginViewController.coreDataStack = coreDataStack

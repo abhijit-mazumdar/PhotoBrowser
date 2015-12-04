@@ -15,13 +15,25 @@ import SwiftyJSON
 class OauthLoginViewController: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var coreDataStack: CoreDataStack!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Check Reachability
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        activityIndicator.startAnimating()
         webView.hidden = true
         NSURLCache.sharedURLCache().removeAllCachedResponses()
         if let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies {
@@ -91,6 +103,7 @@ extension OauthLoginViewController: UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
         webView.hidden = false
+        self.activityIndicator.stopAnimating()
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
